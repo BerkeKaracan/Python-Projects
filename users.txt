@@ -1,3 +1,0 @@
-admin,100000
-berke,5000
-guest,2000
