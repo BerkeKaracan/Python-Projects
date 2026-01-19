@@ -19,7 +19,7 @@ A Python-based CLI (Command Line Interface) tool designed to analyze password st
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/KULLANICI_ADIN/REPO_ADIN.git](https://github.com/BerkeKaracan/Python-Projects.git)
+    git clone [https://github.com/BerkeKaracan/Python-Projects.git](https://github.com/BerkeKaracan/Python-Projects.git)
     ```
 2.  Navigate to the directory:
     ```bash
