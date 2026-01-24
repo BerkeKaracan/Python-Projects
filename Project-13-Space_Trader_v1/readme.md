@@ -1,5 +1,5 @@
 # 🌌 SPACE TRADER V1.0
-
+> **Note:** This project focuses exclusively on **Backend Development** and game logic. It is a text-based simulation running in the CLI (Command Line Interface) to demonstrate Python architecture, economy algorithms, and data persistence. No GUI is included.
 **Space Trader** is a text-based interstellar economy and strategy simulation game written in Python. Become the wealthiest captain in the solar system by trading goods, completing missions, fighting pirates, and managing your fuel and cargo.
 
 ## 🚀 Features
