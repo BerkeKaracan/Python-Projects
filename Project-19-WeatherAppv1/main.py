@@ -16,7 +16,7 @@ def main():
     if not current_location:
         return
     
-    api_key = "8789b64d6527c6498e8d8d72ff53a703"
+    api_key = ""
     url = f"https://api.openweathermap.org/data/2.5/weather?q={current_location}&appid={api_key}&units=metric"
 
     try:
