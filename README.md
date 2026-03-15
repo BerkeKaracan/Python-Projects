@@ -1,4 +1,4 @@
-# My Python Learning Journey 🚀
+# Python Automation & Backend Engineering Sandbox" veya "Backend Architecture & Scripts Collection 🚀
 
 Hi! I'm Berke. This repository hosts the projects I build to improve my Python skills.
 
