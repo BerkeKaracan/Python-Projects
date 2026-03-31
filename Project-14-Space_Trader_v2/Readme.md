@@ -70,14 +70,5 @@ A hidden trading channel for illicit goods.
 | **13** | **Reveal Password** | (Secret) Shows password if all 5 planets are visited. |
 | **0** | **Exit** | Close the communication link. |
 
-## 🔮 Roadmap (V3.0)
-
-> *Incoming Transmission...*
-> *System Alert: Unknown alien signal detected in Sector 9...*
-
-* **Aliens:** Non-human factions.
-* **Weapon Systems:** Upgradeable lasers and shields.
-* **More Planets:** Expanding beyond the solar system.
-
 ---
 *Developed by Captain [Berke Karacan]*
