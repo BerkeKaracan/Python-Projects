@@ -16,8 +16,8 @@ class Library:
         if len(book_name) == 0 :
             print("Error : Book name can't be empty")
             return
-        check_query = "SELECT * FROM books WHERE name = ? "
-        self.cursor.execute(check_query, (book_name,))
+        check_query = "SELECT * FROM books WHERE name = ? AND author = ?"
+        self.cursor.execute(check_query, (book_name, author))
         existing_books = self.cursor.fetchall()
         if len(existing_books) > 0:
             print("This book is already in the library")
@@ -29,16 +29,17 @@ class Library:
 
     def delete_book(self):
         book_name = input("Enter book name: ").title().strip()
-        checker = "SELECT * FROM books WHERE name = ? "
-        self.cursor.execute(checker, (book_name,))
+        author = input("Enter book author: ").title().strip()
+        checker = "SELECT * FROM books WHERE name = ? AND author = ?"
+        self.cursor.execute(checker, (book_name, author))
         existing_books = self.cursor.fetchall()
         if len(existing_books) == 0 :
             print("The book doesn't exist.")
         else:
-            delete_query= "DELETE FROM books WHERE name = ?"
-            self.cursor.execute(delete_query, (book_name,))
+            delete_query= "DELETE FROM books WHERE name = ? AND author = ?"
+            self.cursor.execute(delete_query, (book_name, author))
             self.con.commit()
-            print(f"{book_name} deleted from the library")
+            print(f"'{book_name}' by {author} deleted from the library")
     def show_books(self):
         query = "SELECT * FROM books"
         self.cursor.execute(query)
@@ -77,6 +78,7 @@ while True :
     elif a == "Q" :
         m = input("Are you sure ?(Y/N) : ").upper()
         if m == "Y" :
+            library.con.close()
             break
         else:
             continue

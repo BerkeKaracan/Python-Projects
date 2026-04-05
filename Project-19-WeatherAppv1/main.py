@@ -16,7 +16,7 @@ def main():
     if not current_location:
         return
     
-    api_key = #Paste Your API here like that "83hdhde7403"
+    api_key = "YOUR_API_KEY_HERE"
     url = f"https://api.openweathermap.org/data/2.5/weather?q={current_location}&appid={api_key}&units=metric"
 
     try:
@@ -29,7 +29,7 @@ def main():
         else:
             result.config(text= "Location not found.")
         
-    except Exception as e:
+    except Exception:
         result.config(text="Network error!")
 
 

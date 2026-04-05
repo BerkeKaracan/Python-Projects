@@ -1,6 +1,5 @@
 import os
 import shutil
-import time
 print("--SMART FILE ORGANIZER--")
 target_dir = input("Please paste the folder path to organize : ").strip('"')
 if not os.path.exists(target_dir):
@@ -24,13 +23,18 @@ for file_name in all_files:
     file_extension = os.path.splitext(file_name)[1].lower()
     moved = False
     for folder_name, ext_list in extensions.items():
-        time.sleep(0.5)
         if file_extension in ext_list:
             target_folder = os.path.join(target_dir, folder_name)
             if not os.path.exists(target_folder):
                 os.makedirs(target_folder)
                 print(f"Created folder : '{target_folder}'")
             destination_path = os.path.join(target_folder, file_name)
+            base_name, ext = os.path.splitext(file_name)
+            counter = 1
+            while os.path.exists(destination_path):
+                new_file_name = f"{base_name}_{counter}{ext}"
+                destination_path = os.path.join(target_folder, new_file_name)
+                counter += 1
             try:
                 shutil.move(source_path, destination_path)
                 print(f"Moving : '{file_name} -> {folder_name}'")

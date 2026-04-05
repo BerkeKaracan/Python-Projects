@@ -56,20 +56,24 @@ class Store :
             print("Database updated")
 
     def save_db(self, username, new_balance):
-        # Updates the specific user's balance in 'users.txt'.
-        # Reads all lines, updates only the matching user, and rewrites the file.
+        user_found = False
         with open('users.txt','r') as f:
             n = f.readlines()
+            
         with open('users.txt','w') as f:
             for i in n:
                 m = i.strip().split(',')
-                if len(m) <2 :
+                if len(m) < 2:
                     continue
                 else:
                     if username == m[0]:
                         f.write(f"{username},{new_balance}\n")
+                        user_found = True
                     else:
                         f.write(i)
+        if not user_found:
+            with open('users.txt','a') as f:
+                f.write(f"{username},{new_balance}\n")
 
     def save_orders(self, username, cart):
         if not os.path.exists("orders.txt"):
@@ -100,10 +104,11 @@ class User :
         # Adds a product to the cart if stock is available.
         pr_obj = active_store.finder_product(prdct_name)
         if pr_obj:
-            if pr_obj.product_stock > 0 :
+            in_cart_count = sum(1 for item in self.cart if item.product_name == pr_obj.product_name)
+            if pr_obj.product_stock > in_cart_count:
                 self.cart.append(pr_obj)
             else:
-                print("Out of stock")
+                print("Out of stock (You have taken all available items into your cart!)")
         else:
             print("Product not found! ")
 

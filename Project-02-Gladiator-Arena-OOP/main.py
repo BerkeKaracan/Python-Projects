@@ -34,53 +34,39 @@ class Arena:
         self.f2.situation()
         print("*" * 40)
         input("\n Hold your breath... Press ENTER to start the battle! 🔥")
-        starter = random.randint(1,2)
-        if starter == 1:
-            while self.f1.hp > 0 and self.f2.hp > 0:
-                self.printer()
+        
+        turn = random.randint(1,2) 
+
+        while self.f1.hp > 0 and self.f2.hp > 0:
+            self.printer()
+            
+            if turn == 1:
                 self.f1.attack(self.f2)
                 print("Team 1 is attacking !!!!")
                 time.sleep(2.5)
                 print(f"Damage : {self.f1.power}")
+                
                 if self.f2.hp <= 0:
                     self.printer()
                     print("*" * 40)
                     print("THE WINNER : ")
                     print(self.f1.name)
                     break
+                turn = 2 
+                
+            else:
                 self.f2.attack(self.f1)
                 print("Team 2 is attacking !!!!")
                 time.sleep(2.5)
                 print(f"Damage : {self.f2.power}")
+                
                 if self.f1.hp <= 0:
                     self.printer()
                     print("*" * 40)
                     print("THE WINNER : ")
                     print(self.f2.name)
                     break
-        else:
-            while self.f1.hp > 0 and self.f2.hp > 0:
-                self.printer()
-                self.f2.attack(self.f1)
-                print("Team 2 is attacking !!!!")
-                time.sleep(2.5)
-                print(f"Damage : {self.f2.power}")
-                if self.f1.hp <= 0:
-                    self.printer()
-                    print("*" * 40)
-                    print("THE WINNER : ")
-                    print(self.f2.name)
-                    break
-                self.f1.attack(self.f2)
-                print("Team 1 is attacking !!!!")
-                time.sleep(2.5)
-                print(f"Damage : {self.f1.power}")
-                if self.f2.hp <= 0:
-                    self.printer()
-                    print("*" * 40)
-                    print("THE WINNER : ")
-                    print(self.f1.name)
-                    break
+                turn = 1
 
 spartacus = Gladiator("Spartacus")
 crixus = Gladiator("Crixus")

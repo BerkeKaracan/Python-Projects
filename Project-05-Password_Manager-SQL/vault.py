@@ -81,6 +81,7 @@ while True:
     elif a == "4":
         pass_manager.delete_password()
     elif a == "Q":
+        pass_manager.con.close()
         print("Goodbye!")
         break
     else:

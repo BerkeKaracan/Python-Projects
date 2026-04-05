@@ -40,6 +40,9 @@ class Bank :
                 return
             try:
                 amount = float(input("Enter amount to deposit: "))
+                if amount <= 0:
+                    print("Error: You cannot deposit zero or negative amounts!")
+                    return
             except ValueError:
                 print("Error: Please enter a valid number! (Only numbers)")
                 return
@@ -64,6 +67,9 @@ class Bank :
                 return
             try:
                 amount = float(input("Enter amount to withdraw: "))
+                if amount <= 0:
+                    print("Error: You cannot withdraw zero or negative amounts!")
+                    return
             except ValueError:
                 print("Error: Please enter a valid number! (Only numbers)")
                 return
@@ -122,5 +128,6 @@ while True:
             bank.check_balance()
             time.sleep(1.5)
     elif a == "Q" :
+        bank.con.close()
         print("\nThank you for choosing us. Goodbye! 👋")
         break
